@@ -25,6 +25,12 @@ app.use(
         changeOrigin: true,
     })
 );
+app.use(
+    "/database", createProxyMiddleware({
+        target: "http://database:8004",
+        changeOrigin: true,
+    })
+)
 app.listen(8000, () => {
     console.log("Gateway on port 8000");
 });
